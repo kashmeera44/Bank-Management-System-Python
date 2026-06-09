@@ -1,0 +1,56 @@
+#bank management
+
+class Bank:
+    def __init__(self, customer_name, balance):
+        self.customer_name = customer_name
+        self.balance = balance
+
+    def account_details(self):
+        print("Customer Name:", self.customer_name)
+        print("Balance:", self.balance)
+
+    def deposit_money(self, amount):
+        self.balance += amount
+        print("Amount Deposited Successfully")
+
+    def withdraw_money(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print("Amount Withdrawn Successfully")
+        else:
+            print("Balance")
+
+
+name = input("Enter Customer Name: ")
+
+o = Bank(name, 1000)
+
+msg = """
+1. View Account Details
+2. Deposit Money
+3. Withdraw Money
+4. Exit
+"""
+
+while True:
+    print(msg)
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        o.account_details()
+
+    elif choice == 2:
+        amount = int(input("Enter amount to deposit: "))
+        o.deposit_money(amount)
+
+    elif choice == 3:
+        amount = int(input("Enter amount to withdraw: "))
+        o.withdraw_money(amount)
+
+    elif choice == 4:
+        print("Thank you for using Bank System")
+
+    else:
+        print("Invalid Choice")
+        quit()
